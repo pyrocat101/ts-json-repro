@@ -1,0 +1,15 @@
+# load("@aspect_rules_swc//swc:defs.bzl", "swc")
+load("@aspect_rules_ts//ts:defs.bzl", "ts_project")
+
+ts_project(
+    name = "bar",
+    srcs = [
+        "bar.ts",
+    ],
+    declaration = True,
+    # transpiler = swc,
+    tsconfig = "//:tsconfig",
+    deps = [
+        "//foo",
+    ],
+)

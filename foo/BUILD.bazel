@@ -1,0 +1,15 @@
+# load("@aspect_rules_swc//swc:defs.bzl", "swc")
+load("@aspect_rules_ts//ts:defs.bzl", "ts_project")
+
+ts_project(
+    name = "foo",
+    srcs = [
+        "foo.json",
+        "foo.ts",
+    ],
+    data = ["foo.json"],
+    declaration = True,
+    # transpiler = swc,
+    tsconfig = "//:tsconfig",
+    visibility = ["//bar:__subpackages__"],
+)
